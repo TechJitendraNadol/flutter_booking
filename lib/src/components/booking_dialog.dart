@@ -1,4 +1,4 @@
-import 'package:booking_calendar/src/components/common_card.dart';
+import 'package:flutter_booking/src/components/common_card.dart';
 import 'package:flutter/material.dart';
 
 class BookingDialog extends StatelessWidget {
