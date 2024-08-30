@@ -1,3 +1,9 @@
+## 2.0.1
+
+- Breaking change
+
+## Now with custom modification
+
 ## 1.0.2
 
 - Package library name changes

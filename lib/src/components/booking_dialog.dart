@@ -1,5 +1,5 @@
-import 'package:flutter_booking/src/components/common_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_booking/src/components/common_card.dart';
 
 class BookingDialog extends StatelessWidget {
   const BookingDialog({Key? key}) : super(key: key);

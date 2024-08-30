@@ -22,7 +22,7 @@ class BookingService {
   final String? serviceId;
 
   ///The name of the currently selected Service
-  final String serviceName;
+  final String? serviceName;
 
   ///The duration of the currently selected Service
 
@@ -46,7 +46,7 @@ class BookingService {
     required this.bookingStart,
     required this.bookingEnd,
     this.serviceId,
-    required this.serviceName,
+    this.serviceName,
     required this.serviceDuration,
     this.servicePrice,
   });

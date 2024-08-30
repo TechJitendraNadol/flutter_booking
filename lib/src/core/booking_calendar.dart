@@ -41,7 +41,9 @@ class BookingCalendar extends StatelessWidget {
       this.startingDayOfWeek = StartingDayOfWeek.monday,
       this.disabledDays,
       this.disabledDates,
-      this.lastDay})
+      this.isMultiSelect = true,
+      this.lastDay,
+      this.checkBoxTitle, this.onChangedCheckbox})
       : super(key: key);
 
   ///for the Calendar picker we use: [TableCalendar]
@@ -91,6 +93,12 @@ class BookingCalendar extends StatelessWidget {
   ///The text on the booking button
   final String? bookingButtonText;
 
+  ///for Multiselect functionality
+  final bool? isMultiSelect;
+
+  ///check box Text
+  final String? checkBoxTitle;
+
   ///The color of the booking button
   final Color? bookingButtonColor;
 
@@ -113,6 +121,10 @@ class BookingCalendar extends StatelessWidget {
 
   ///Display your custom loading widget while fetching data from [Stream]
   final Widget? loadingWidget;
+
+  ///On Changed value of [Checkbox],
+  /// it will return true or false based on the selection of [checkbox]
+  final ValueChanged<bool>? onChangedCheckbox;
 
   ///Display your custom error widget if any error recurred while fetching data from [Stream]
   final Widget? errorWidget;
@@ -153,38 +165,40 @@ class BookingCalendar extends StatelessWidget {
           bookingService: bookingService, pauseSlots: pauseSlots),
       child: BookingCalendarMain(
         key: key,
-        getBookingStream: getBookingStream,
+        locale: locale,
+        lastDay: lastDay,
+        errorWidget: errorWidget,
+        isMultiSelect: isMultiSelect,
         uploadBooking: uploadBooking,
-        bookingButtonColor: bookingButtonColor,
-        bookingButtonText: bookingButtonText,
-        bookingExplanation: bookingExplanation,
-        bookingGridChildAspectRatio: bookingGridChildAspectRatio,
-        bookingGridCrossAxisCount: bookingGridCrossAxisCount,
         formatDateTime: formatDateTime,
-        convertStreamResultToDateTimeRanges:
-            convertStreamResultToDateTimeRanges,
+        getBookingStream: getBookingStream,
+        bookingButtonText: bookingButtonText,
+        startingDayOfWeek: startingDayOfWeek,
+        bookingButtonColor: bookingButtonColor,
         bookedSlotTextStyle: bookedSlotTextStyle,
+        bookingGridCrossAxisCount: bookingGridCrossAxisCount,
+        bookingGridChildAspectRatio: bookingGridChildAspectRatio,
+        convertStreamResultToDateTimeRanges: convertStreamResultToDateTimeRanges,
         availableSlotTextStyle: availableSlotTextStyle,
+        wholeDayIsBookedWidget: wholeDayIsBookedWidget,
         selectedSlotTextStyle: selectedSlotTextStyle,
         availableSlotColor: availableSlotColor,
+        bookingExplanation: bookingExplanation,
         availableSlotText: availableSlotText,
-        bookedSlotColor: bookedSlotColor,
-        bookedSlotText: bookedSlotText,
         selectedSlotColor: selectedSlotColor,
-        selectedSlotText: selectedSlotText,
         gridScrollPhysics: gridScrollPhysics,
-        loadingWidget: loadingWidget,
-        errorWidget: errorWidget,
+        selectedSlotText: selectedSlotText,
+        bookedSlotColor: bookedSlotColor,
         uploadingWidget: uploadingWidget,
-        wholeDayIsBookedWidget: wholeDayIsBookedWidget,
         pauseSlotColor: pauseSlotColor,
+        bookedSlotText: bookedSlotText,
+        loadingWidget: loadingWidget,
         pauseSlotText: pauseSlotText,
         hideBreakTime: hideBreakTime,
-        locale: locale,
-        startingDayOfWeek: startingDayOfWeek,
-        disabledDays: disabledDays,
-        lastDay: lastDay,
         disabledDates: disabledDates,
+        disabledDays: disabledDays,
+        checkBoxTitle:checkBoxTitle,
+          onChangedCheckbox:onChangedCheckbox
       ),
     );
   }

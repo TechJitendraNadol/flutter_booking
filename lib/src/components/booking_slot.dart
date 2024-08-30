@@ -1,5 +1,5 @@
-import 'package:flutter_booking/src/components/common_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_booking/src/components/common_card.dart';
 
 class BookingSlot extends StatelessWidget {
   const BookingSlot({
@@ -48,9 +48,8 @@ class BookingSlot extends StatelessWidget {
         : GestureDetector(
             onTap: (!isBooked && !isPauseTime) ? onTap : null,
             child: CommonCard(
-                margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                 color: getSlotColor(),
                 child: child),
           );
